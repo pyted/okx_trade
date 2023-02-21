@@ -1,0 +1,5 @@
+EXCHANGE_INFO_ERROR = ['EXCHANGE_INFO_ERROR', 'Transaction rules and transaction pair errors']
+CANDLE_LENGTH_ERROR = ['CANDLE_LENGTH_ERROR', 'History candle length error']
+CANDLE_INTERVAL_ERROR = ['CANDLE_INTERVAL_ERROR', 'History candle ts interval error']
+CANDLE_END_ERROR = ['CANDLE_END_ERROR', 'History candle end ts error']
+CANDLE_START_ERROR = ['CANDLE_START_ERROR', 'History candle start ts error']

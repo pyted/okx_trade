@@ -1,0 +1,4 @@
+candlelite
+paux>=1.0.5
+okx>=1.0.7
+okx_candle>=1.0.5
