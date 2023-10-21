@@ -7,7 +7,9 @@ class MarketSPOT(Market):
             key: str,
             secret: str,
             passphrase: str,
-            timezone='Asia/Shanghai'
+            timezone='Asia/Shanghai',
+            proxies={},
+            proxy_host: str = None,
     ):
         instType = 'SPOT'
         super(MarketSPOT, self).__init__(
@@ -15,5 +17,8 @@ class MarketSPOT(Market):
             key=key,
             secret=secret,
             passphrase=passphrase,
-            timezone=timezone
+            timezone=timezone,
+            proxies=proxies,
+            proxy_host=proxy_host,
+
         )

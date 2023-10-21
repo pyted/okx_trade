@@ -8,17 +8,21 @@ class OkxSPOT():
                  key: str,
                  secret: str,
                  passphrase: str,
-                 timezone: str = 'Asia/Shanghai'):
+                 timezone: str = 'Asia/Shanghai',
+                 proxies={},
+                 proxy_host: str = None,
+                 ):
         self.account = AccountSPOT(
-            key=key, secret=secret, passphrase=passphrase
+            key=key, secret=secret, passphrase=passphrase, proxies=proxies, proxy_host=proxy_host,
         )
         self.market = MarketSPOT(
-            key=key, secret=secret, passphrase=passphrase, timezone=timezone
+            key=key, secret=secret, passphrase=passphrase, timezone=timezone, proxies=proxies, proxy_host=proxy_host,
         )
         self.trade = TradeSPOT(
             key=key, secret=secret, passphrase=passphrase,
             timezone=timezone,
             account=self.account,
             market=self.market,
+            proxies=proxies, proxy_host=proxy_host,
         )
         self.timezone = timezone

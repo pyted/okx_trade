@@ -11,17 +11,21 @@ class TradeBase():
             passphrase: str,
             timezone: str = 'Asia/Shanghai',
             account=None,
-            market=None
+            market=None,
+            proxies={},
+            proxy_host: str = None,
     ):
         # SWAP账户
         if not account:
-            self._account = AccountSWAP(key=key, secret=secret, passphrase=passphrase)
+            self._account = AccountSWAP(key=key, secret=secret, passphrase=passphrase, proxies=proxies,
+                                        proxy_host=proxy_host)
         else:
             self._account = account
 
         # SWAP行情
         if not market:
-            self._market = MarketSWAP(key=key, secret=secret, passphrase=passphrase, timezone=timezone)
+            self._market = MarketSWAP(key=key, secret=secret, passphrase=passphrase, timezone=timezone, proxies=proxies,
+                                      proxy_host=proxy_host)
         else:
             self._market = market
 
@@ -38,4 +42,5 @@ class TradeBase():
         self.timezone = timezone
         # TRADE API
         FLAG = '0'
-        self.api = TradeAPI(key=key, secret=secret, passphrase=passphrase, flag=FLAG)
+        self.api = TradeAPI(key=key, secret=secret, passphrase=passphrase, flag=FLAG, proxies=proxies,
+                            proxy_host=proxy_host)

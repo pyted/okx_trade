@@ -8,17 +8,22 @@ class OkxSWAP():
                  key: str,
                  secret: str,
                  passphrase: str,
-                 timezone: str = 'Asia/Shanghai'):
+                 timezone: str = 'Asia/Shanghai',
+                 proxies={},
+                 proxy_host: str = None,
+                 ):
         self.account = AccountSWAP(
-            key=key, secret=secret, passphrase=passphrase
+            key=key, secret=secret, passphrase=passphrase, proxies=proxies, proxy_host=proxy_host,
         )
         self.market = MarketSWAP(
-            key=key, secret=secret, passphrase=passphrase, timezone=timezone
+            key=key, secret=secret, passphrase=passphrase, timezone=timezone, proxies=proxies, proxy_host=proxy_host,
         )
         self.trade = TradeSWAP(
             key=key, secret=secret, passphrase=passphrase,
             timezone=timezone,
             account=self.account,
             market=self.market,
+            proxies=proxies,
+            proxy_host=proxy_host,
         )
         self.timezone = timezone

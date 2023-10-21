@@ -9,8 +9,9 @@ class AccountSPOT():
             self,
             key: str,
             secret: str,
-            passphrase: str
-
+            passphrase: str,
+            proxies={},
+            proxy_host: str = None,
     ):
         FLAG = '0'
         self.api = AccountAPI(
@@ -18,6 +19,8 @@ class AccountSPOT():
             secret=secret,
             passphrase=passphrase,
             flag=FLAG,
+            proxies=proxies,
+            proxy_host=proxy_host,
         )
 
     # 查看账户余额 details为列表

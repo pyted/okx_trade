@@ -10,7 +10,9 @@ class AccountSWAP():
             self,
             key: str,
             secret: str,
-            passphrase: str
+            passphrase: str,
+            proxies={},
+            proxy_host: str = None,
 
     ):
         FLAG = '0'
@@ -19,6 +21,8 @@ class AccountSWAP():
             secret=secret,
             passphrase=passphrase,
             flag=FLAG,
+            proxies=proxies,
+            proxy_host=proxy_host,
         )
 
     # 查看账户余额 details为列表
@@ -148,7 +152,7 @@ class AccountSWAP():
     # 查看持仓信息 列表
     def get_positions(
             self,
-            instId:str = '',
+            instId: str = '',
             mgnMode: str = '',
             posSide: str = '',
     ):
